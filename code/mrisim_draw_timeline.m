@@ -106,7 +106,7 @@ classdef mrisim_draw_timeline < mrisim_draw
 
 
             xlim([t_min t_max*1.01]);
-            ylim([-15 189]);
+            ylim([-35 189]);
 
             set(gca, ...
                 'ytick', [-180:90:180], ...
