@@ -33,6 +33,11 @@ classdef rf < handle
                     obj.foff = 0;
 
                 case 'spoil'
+                    % this is emulating gradient spoiling, but is
+                    % implemented in a way that cannot be achieved
+                    % within the reals of MR physics as we know it,
+                    % but it serves another purpose: making the 
+                    % teaching easier
                     alpha = 1;
                     f = @(x) exp(-x * 4 * 180 / pi);
                     obj.Mf = @(alpha) [f(alpha) 0 0; 0 f(alpha) 0; 0 0 1];
