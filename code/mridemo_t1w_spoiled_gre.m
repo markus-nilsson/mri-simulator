@@ -5,8 +5,8 @@ if (nargin < 1), do_spoiling = 1; end
 if (nargin < 2), do_export_gif = 0; end
 
 % Define timline
-T_sim = 0.23;
-dt = 1e-6;
+T_sim = 0.46;
+dt = 1e-5;
 
 my_timeline = timeline(T_sim, dt);
 
@@ -18,15 +18,40 @@ rfs = {};
 acqs = {};
 tr = 19e-3;
 
-for c = 1:12
-    
-    rfs{end+1} = rf('y', alpha,  tr * (c-1), 5e-3);
+for c = 1:24
 
-    if (do_spoiling)
-        rfs{end+1} = rf('spoil', 0,  12e-3 + tr * (c-1), 5e-3);
+    switch (do_spoiling) % select spoiling method
+
+        case 0 % none
+    
+            rfs{end+1} = rf('y', alpha,  tr * (c-1), 5e-3);
+
+            c_start = 4;
+
+        case 1 % emulated gradient spoiling, although implemented in a
+            % non physical way
+
+            rfs{end+1} = rf('y', alpha,  tr * (c-1), 5e-3);
+            rfs{end+1} = rf('spoil', 0,  12e-3 + tr * (c-1), 5e-3);
+
+            c_start = 4;
+
+        case 2 % rf spoiling
+
+            this_rf = rf('y', alpha,  tr * (c-1), 5e-3);
+            this_rf.phase = (c-1) * 117 / 180 * pi;
+
+            rfs{end+1} = this_rf;
+
+            c_start = 12;
+
+        otherwise
+
+            error('spoiling method not impleemnted')
+
     end
 
-    if (c > 4)
+    if (c > c_start)
         acqs{end+1} = acq( 5e-3 + tr * (c-1), 5e-3);
     end
 end
@@ -56,7 +81,7 @@ my_plot_engine = mrisim_plot_engine(l_str);
 my_plot_engine.plot_timeline.do_extend_rf_plot = 1;
 my_plot_engine.plot_timeline.do_plot_acq = 0;
 
-my_plot_engine.n_mod = 1000; % fewer observations
+my_plot_engine.n_mod = 400; % fewer observations
 my_plot_engine.do_export_gif = do_export_gif;
 
 
