@@ -1,3 +1,6 @@
+function mridemo_fat_and_water(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.038;
@@ -33,7 +36,8 @@ b0_fun = @(n) [0 10]';
 % Setup plot functions
 l_str = {'Fat and water'};
 my_plot_engine = mrisim_plot_engine(l_str, 2);
-my_plot_engine.n_mod = 5;
+my_plot_engine.n_mod = 6;
+my_plot_engine.do_export_gif = do_export_gif;
 
 for c = 1:1
 

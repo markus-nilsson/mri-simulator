@@ -1,4 +1,6 @@
-function demo_pd()
+function mridemo_pd(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.6;
@@ -39,6 +41,7 @@ b0_fun = @(n) zeros(n, 1);
 l_str = {'High PD', 'Low PD'};
 my_plot_engine = mrisim_plot_engine(l_str);
 my_plot_engine.plot_timeline.do_extend_rf_plot = 1;
+my_plot_engine.do_export_gif = do_export_gif;
 
 
 for c = 1:2

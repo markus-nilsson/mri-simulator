@@ -1,3 +1,6 @@
+function mridemo_slice_selection(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.2;
@@ -49,7 +52,7 @@ my_plot_engine.n_mod = 20;
 my_plot_engine.plot_vectors.do_draw_circle = 0;
 my_plot_engine.plot_vectors.sc = 2.7;
 
-
+my_plot_engine.do_export_gif = do_export_gif;
 
 for c = 1:1
 

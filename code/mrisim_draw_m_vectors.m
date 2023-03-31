@@ -109,9 +109,6 @@ classdef mrisim_draw_m_vectors < mrisim_draw
                             'color', cmap(c, :));
                 case 'arrow'
 
-%                     draw_vector = @(r, m, c) arrow3D(...
-%                         [0 0 0] + r, m, 'interp', 0.82, c);
-
                     draw_vector = @(r, m, c) my_arrow3d(...
                         [0 0 0] + r, m, c);
                     

@@ -1,3 +1,7 @@
+function mridemo_t2w_turbo_spin_echo(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
+
 % Define timline
 T_sim = 0.4;
 
@@ -45,6 +49,7 @@ b0_fun = @(n) linspace(-1, 1, n)' * 0.9;
 l_str = {'Long T2', 'Short T2'};
 my_plot_engine = mrisim_plot_engine(l_str);
 my_plot_engine.n_mod = 20;
+my_plot_engine.do_export_gif = do_export_gif;
 
 
 for c = 1:2

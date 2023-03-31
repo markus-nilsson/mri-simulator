@@ -1,3 +1,7 @@
+function mridemo_t1w_principle(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
+
 % Define timline
 T_sim = 0.605;
 
@@ -7,10 +11,10 @@ my_timeline = timeline(T_sim);
 % Define pulse sequence
 
 rfs = {...
-    rf('y', 90,  50e-3, 5e-3), ...
-    rf('y', 90,  150e-3, 5e-3), ...
-    rf('y', 90,  250e-3, 5e-3), ...
-    rf('y', 90,  350e-3, 5e-3), ...
+    rf('x', 90,  50e-3, 5e-3), ...
+    rf('x', 90,  150e-3, 5e-3), ...
+    rf('x', 90,  250e-3, 5e-3), ...
+    rf('x', 90,  350e-3, 5e-3), ...
     };
 
 grads = {};
@@ -42,6 +46,8 @@ my_plot_engine = mrisim_plot_engine(l_str);
 
 my_plot_engine.plot_timeline.do_extend_rf_plot = 1;
 my_plot_engine.plot_timeline.do_plot_acq = 0;
+
+my_plot_engine.do_export_gif = do_export_gif;
 
 
 for c = 1:2

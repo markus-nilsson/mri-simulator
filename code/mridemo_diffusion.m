@@ -1,3 +1,6 @@
+function mridemo_diffusion(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.2;
@@ -54,6 +57,7 @@ my_plot_engine.plot_vectors.do_draw_circle = 0;
 my_plot_engine.plot_vectors.sc = 1.9;
 my_plot_engine.plot_vectors.campos = [-8 -12.4 6];
 my_plot_engine.plot_signal.l_loc = 'SouthEast';
+my_plot_engine.do_export_gif = do_export_gif;
 
 for c = 1:2
 

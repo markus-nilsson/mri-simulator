@@ -20,6 +20,7 @@ classdef spin_system < handle
         b0_gen_fun = @(n) zeros(n, 1);
 
         do_stop_b0_rotation = 0;
+        do_normalize = 0;
 
         n = 1;
 
@@ -109,6 +110,13 @@ classdef spin_system < handle
             this_dr = obj.dr(dt);
 
             obj.r = obj.r + this_dr;
+
+            % normalize vectors (for better visualization)
+            if (obj.do_normalize)
+                l_max = max(sqrt(sum(obj.m.^2,2)));
+
+                obj.m = obj.m / l_max;
+            end
 
         end
 

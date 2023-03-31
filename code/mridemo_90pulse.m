@@ -1,3 +1,6 @@
+function mridemo_90pulse(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.1;
@@ -8,7 +11,7 @@ my_timeline = timeline(T_sim);
 % Define pulse sequence
 
 rfs = {...
-    rf('offresonance', 90,  10e-3, 50e-3, [], 5 * mrisim_gamma())};
+    rf('offresonance', 90,  5e-3, 50e-3, [], 5 * mrisim_gamma())};
 
 acqs = {};
 grads = {};
@@ -32,8 +35,10 @@ b0_fun = @(c) (@(n) b0_offset_list(c) * ones(n, 1));
 % Setup plot functions
 l_str = {'On resonance', 'Off resonance'};
 my_plot_engine = mrisim_plot_engine(l_str, 2);
-my_plot_engine.n_mod = 5;
+my_plot_engine.n_mod = 6;
 my_plot_engine.plot_vectors.do_draw_rf_pulse = 1;
+my_plot_engine.do_export_gif = do_export_gif;
+
 
 for c = 1:2
 
@@ -59,40 +64,3 @@ for c = 1:2
 end
 
 
-
-
-
-
-% 
-%         n_t_mod = 5;
-% 
-%         do overtipping due to b0 offset
-%         if (c_sim == 12)
-%             rfobjs = {rf('y', 90,  5e-3, 3e-3)};
-%         else
-%             rfobjs = {rf('y', 95,  5e-3, 3e-3)};
-%         end
-% 
-%         acqobjs = {};
-% 
-%         t1_list = inf;
-%         t2_list = inf;
-% 
-%         m0_list = 0.99;
-% 
-%         if (c_sim == 12)
-%             b0_offset_list = 0;
-%         else
-%             b0_offset_list = 10;
-%         end
-%         b0_spread_list = 0;
-% 
-%         b0h_scale_factor = 1;
-% 
-%         n_arrow = 1;
-%         n_sim = 1;
-% 
-% 
-%         c_signal_plot_mode = 2;
-% 
-%         T_sim = 0.21;

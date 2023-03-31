@@ -1,3 +1,6 @@
+function mridemo_pd_with_rotation(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.1;
@@ -29,7 +32,7 @@ b0_fun = @(n) ones(n, 1);
 % Setup plot functions
 l_str = {'High PD', 'Low PD'};
 my_plot_engine = mrisim_plot_engine(l_str,2);
-
+my_plot_engine.do_export_gif = do_export_gif;
 
 for c = 1:2
 

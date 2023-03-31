@@ -102,8 +102,8 @@ classdef mrisim < handle
                 % Update the time of the pulse sequence
                 obj.pulse_seq.timeline.update();
 
-
             end
+
         end
 
     end

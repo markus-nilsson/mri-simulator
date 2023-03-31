@@ -1,3 +1,6 @@
+function mridemo_t2star_weighted(do_export_gif)
+
+if (nargin < 1), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.09;
@@ -33,7 +36,7 @@ b0_fun = @(c)(@(n) (norminv(linspace(0.1, 0.9, n)', 0, b0_spread_list(c))));
 l_str = {'Long T2*', 'Short T2*'};
 my_plot_engine = mrisim_plot_engine(l_str);
 my_plot_engine.plot_timeline.do_extend_rf_plot = 1;
-
+my_plot_engine.do_export_gif = do_export_gif; 
 
 for c = 1:2
 

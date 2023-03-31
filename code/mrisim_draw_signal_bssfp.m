@@ -2,6 +2,8 @@ classdef mrisim_draw_signal_bssfp < mrisim_draw
 
     properties
         h_plot = [];
+
+        mtr_cache = [];
     end
 
     methods
@@ -41,7 +43,16 @@ classdef mrisim_draw_signal_bssfp < mrisim_draw
             % compute transversal magnetizations
             mtr = sqrt(sum(s.m(:, 1:2).^2,2));
 
-            set(obj.h_plot, 'XData', s.omega, 'YData', mtr);
+            % this is just to smooth the visualization
+            if (isempty(obj.mtr_cache))
+                obj.mtr_cache = mtr;
+            else
+                obj.mtr_cache = obj.mtr_cache / 2 + mtr / 2;
+            end
+
+            set(obj.h_plot, 'XData', s.omega, 'YData', obj.mtr_cache);
+
+            ylim(obj.h, [0 1]);
 
         end
     end

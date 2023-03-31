@@ -1,8 +1,8 @@
-function mridemo_t1w_spoiled_gre(do_spoiling)
+function mridemo_t1w_spoiled_gre(do_spoiling, do_export_gif)
 
 % General settings
 if (nargin < 1), do_spoiling = 1; end
-
+if (nargin < 2), do_export_gif = 0; end
 
 % Define timline
 T_sim = 0.23;
@@ -57,6 +57,7 @@ my_plot_engine.plot_timeline.do_extend_rf_plot = 1;
 my_plot_engine.plot_timeline.do_plot_acq = 0;
 
 my_plot_engine.n_mod = 1000; % fewer observations
+my_plot_engine.do_export_gif = do_export_gif;
 
 
 for c = 1:2

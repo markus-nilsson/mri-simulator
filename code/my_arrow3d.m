@@ -8,9 +8,9 @@ y0 = m(2);
 z0 = m(3);
 
 % Define the arrow vector components
-u = r(1);
-v = r(2);
-w = r(3);
+u = r(1) + eps;
+v = r(2) + eps;
+w = r(3) + eps;
 
 % Arrow stem parameters
 stemRadius = 0.05;
@@ -18,7 +18,7 @@ stemLength = sqrt(u^2 + v^2 + w^2);
 
 % Arrowhead parameters
 headRadius = 0.09;
-headLength = stemLength * 0.15;
+headLength = min(0.15, stemLength);
 
 % Create a cylinder for the stem
 [X, Y, Z] = cylinder(stemRadius, 20);
