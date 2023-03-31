@@ -7,6 +7,7 @@ so-called "banding artefacts".
 
 ![bSSFP](../gif/mridemo_bssfp.gif "Balanced steady state free precession")
 
+[The code for this figure is found here](../code/mridemo_bssfo.m)
 
 ## References
 
