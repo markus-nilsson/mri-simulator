@@ -14,6 +14,7 @@ classdef mrisim_plot_engine < handle
         gif_first_frame = 1;
         gif_fn = [];
         caller_fn = [];
+        delay_time = 1/50;
         
         c_plot_mode = 1;
         
@@ -225,13 +226,13 @@ classdef mrisim_plot_engine < handle
 
                     [A,map] = rgb2ind(im,256);
 
-                    delay_time = 1/50;
+                    
                     
                     if (obj.gif_first_frame)
-                        imwrite(A,map,obj.gif_fn,'gif','LoopCount',Inf,'DelayTime',delay_time);                            
+                        imwrite(A,map,obj.gif_fn,'gif','LoopCount',Inf,'DelayTime',obj.delay_time);                            
                         obj.gif_first_frame = 0;
                     else
-                        imwrite(A,map,obj.gif_fn,'gif','WriteMode','append','DelayTime',delay_time);
+                        imwrite(A,map,obj.gif_fn,'gif','WriteMode','append','DelayTime',obj.delay_time);
                     end
                 end
 

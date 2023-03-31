@@ -11,8 +11,8 @@ my_timeline = timeline(T_sim);
 % Define pulse sequence
 
 rfs = {...
-    rf('y', 90,  10e-3 - 2.5e-3, 5e-3), ...
-    rf('x', 180, 100e-3 - 2.5e-3, 5e-3)};
+    rf('x', 90,  10e-3 - 2.5e-3, 5e-3), ...
+    rf('y', 180, 100e-3 - 2.5e-3, 5e-3)};
 
 gmax = 0.2 * 6;
 
@@ -57,7 +57,10 @@ my_plot_engine.plot_vectors.do_draw_circle = 0;
 my_plot_engine.plot_vectors.sc = 1.9;
 my_plot_engine.plot_vectors.campos = [-8 -12.4 6];
 my_plot_engine.plot_signal.l_loc = 'SouthEast';
+my_plot_engine.n_mod = 20; 
 my_plot_engine.do_export_gif = do_export_gif;
+my_plot_engine.delay_time = 1/25;
+
 
 for c = 1:2
 

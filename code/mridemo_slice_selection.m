@@ -26,7 +26,7 @@ grads = {...
     grad('y', 10e-3, 90e-3, gm), ...
     grad('y', 110e-3, 45e-3, -gm )  };
 
-rfs = { rf('y', 91,  10e-3, 90e-3, rf_waveform) };
+rfs = { rf('x', 91,  10e-3, 90e-3, rf_waveform) };
 
 acqs = {};
 
