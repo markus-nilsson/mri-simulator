@@ -1,4 +1,4 @@
-# T1-weightd imaging: The principle
+# T1-weighted imaging: The principle
 
 ![T1-weighted imaging](../gif/mridemo_t1w_principle.gif)
 
