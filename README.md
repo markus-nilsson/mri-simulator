@@ -1,4 +1,4 @@
-# MRI simulator of spin dynamcis
+# MRI simulator of spin dynamics
 MRI simulator for educational purposes written in MATLAB
 
 Run files named mridemo_*.m to visualize different MRI pulse sequences
