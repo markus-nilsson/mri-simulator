@@ -30,3 +30,9 @@ Figure 1: Illustration of the effect of a 90&deg; pulse that is either on resona
 - [T1-weighted spoiled gradient echo](md/t1w_spoiled_gre.md)
 - [Turbo spin echo](md/t2w_turbo_spin_echo.md)
 - [Balanced steady-state free precession](md/bssfp.md)
+
+## Links to other useful resources
+- [Interactive Bloch simulator](https://drcmr.dk/BlochSimulator/)
+- [Introduction to Principles of MRI](https://larsonlab.github.io/MRI-education-resources/Introduction.html)
+
+
