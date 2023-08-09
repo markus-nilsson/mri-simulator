@@ -8,7 +8,7 @@ vectors have different resonance frequences and at a certain frequency the stead
 so-called "banding artefacts". 
 
 
-[The code for this figure is found here](../code/mridemo_bssfo.m)
+[The code for this figure is found here](../code/mridemo_bssfp.m)
 
 ## References
 
