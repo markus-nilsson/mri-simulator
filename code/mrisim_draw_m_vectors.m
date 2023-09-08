@@ -47,7 +47,11 @@ classdef mrisim_draw_m_vectors < mrisim_draw
             set(gca,'fontsize', 15);
 
             colormap hot;
-            clim([0 numel(mr_sim.spin_sys.vis_ind)+1]);
+            if isMATLABReleaseOlderThan('R2022a')
+                caxis([0 numel(mr_sim.spin_sys.vis_ind)+1]);
+            else
+                clim([0 numel(mr_sim.spin_sys.vis_ind)+1]);
+            end
 
             title('Magnetisation vectors');
 
